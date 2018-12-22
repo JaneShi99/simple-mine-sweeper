@@ -1,0 +1,53 @@
+Classes:
+
+
+Cell
+Has a vector of pointer neighbours (observer)
+Has a boolean state indicator field: bomb or not bomb
+Has another boolean state indicator field: revealed or not revealed
+Has a integer field for number of neighbours who are bombs (this is where the notify observer and subject get state comes in)
+Functions: getter and setters for states
+Function: calculate number of observers who are bombs (this only needs to be called once when game-board is initialized)
+
+Game
+Has a gameboard vec<vec<cell>>
+Has a pimpl to text display and another pimpl to graphics display
+Available functions:
+Private:
+Init
+Set up random bombs
+For each cell calculate number of bomb neighbours
+Set all reveal to false
+Game state: 
+Lost / win boolean
+Public:
+Actions:
+Mark bomb
+Reveal grid
+ (if reveal a bombed spot then everything reveals and you gg)
+Otherwise if you reveal a spot with >0 bomb neighbours display number
+Else you use recursion to reveal the area around you, creating a ‘borderline’
+
+
+
+
+Text display
+Takes in dimensions, and the state of each cell
+
+
+Graphics display
+
+
+Main
+Responsible for text command inputs
+Input:
+Mark as bomb (specific coordinate)
+Reveal grid at (specific coordinate)
+
+
+
+Graphics:
+Worry about this later
+https://en.cppreference.com/w/cpp/links/libs
+Work on the text interface first then work on graphics
+
