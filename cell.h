@@ -28,4 +28,23 @@ class Cell{
         initialized = true;
     }
     int notify(){return isBomb? 1 :  0;}
+
+    bool getIsBomb(){return isBomb;}
+
+    bool getIsRevealed(){return isRevealed;}
+
+    int getBombsAroundMe(){return bombsAroundMe;}
+
+    char getPrintChar(){
+        if(!isRevealed){
+            return '.';
+        }
+        else if(isBomb && isRevealed){
+            return '*';
+        }
+        else{
+            if (bombsAroundMe == 0) {return ' ';}
+            else {return static_cast<char>(bombsAroundMe);}
+        }   
+    } 
 };

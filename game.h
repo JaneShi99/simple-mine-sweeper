@@ -1,7 +1,9 @@
 #include "cell.h"
 #include<iostream>
 
+class textDisplay;
 class game{
+    textDisplay * pImpl;
     const int width = 20;
     const int height = 20;
     std::vector<std::vector<Cell>> board;
