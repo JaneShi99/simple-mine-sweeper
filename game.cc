@@ -8,8 +8,8 @@ game::game(){
 
     //initialize the cell add neighbours
     for(int i = 0; i < width; ++i){
-        for(o){
-            
+        for(int j = 0; j < width; ++ j){
+
         }
     }
     
@@ -41,3 +41,17 @@ void game::checkWin(){
     //2. if markedBombs equal real Bombs then return WIN
     //3. otherwise keep playing
 }
+
+
+std::ostream& operator<<(std::ostream&out , game g){
+    for(int i = 0 ; i < g.width; ++i)
+    {
+        for(int j = 0; j < g.height; ++j){
+            char c = (g.board)[i][j].getPrintChar();
+            out<<c;
+        }
+        out<<std::endl;
+    }
+
+}
+

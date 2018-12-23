@@ -22,4 +22,7 @@ class game{
 
     //check win is a method that updates 
     void checkWin();
+    friend std::ostream& operator<<(std::ostream& out, game g);
 };
+
+std::ostream& operator<<(std::ostream& out , game g);
