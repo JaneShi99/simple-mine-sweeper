@@ -7,6 +7,7 @@ class Cell{
     bool isRevealed;
     int bombsAroundMe;
     bool initialized;
+    bool flagged;
 
     public:
 
@@ -36,15 +37,20 @@ class Cell{
     int getBombsAroundMe(){return bombsAroundMe;}
 
     char getPrintChar(){
-        if(!isRevealed){
+        if(!isRevealed && !flagged){
             return '.';
         }
         else if(isBomb && isRevealed){
             return '*';
         }
-        else{
+        else if(!isBomb && isRevealed){
             if (bombsAroundMe == 0) {return ' ';}
             else {return static_cast<char>(bombsAroundMe);}
         }   
+        else
+        {
+            //then it is marked as bomb
+            return 'F';
+        }
     } 
 };
