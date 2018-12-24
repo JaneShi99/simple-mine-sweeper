@@ -1,14 +1,16 @@
 #include<iostream>
 #include "game.h"
-
+#include "cell.h"
 using namespace std;
 int main()
 {
-    game * g = new game();
+    Game * g = new Game();
     char p;
     int x;
     int y;
 
+    Cell * c = new Cell();
+    delete c;
     while(cin >> p && cin>> x && cin >> y){
     
         if(p == 'm'){}

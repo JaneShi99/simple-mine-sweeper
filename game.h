@@ -1,28 +1,32 @@
+#ifndef __GAME_H__
+#define __GAME_H__
 #include "cell.h"
+#include <vector>
 #include<iostream>
-
-class textDisplay;
-class game{
-    textDisplay * pImpl;
+#include<map>
+class Game{
     static const int width = 20;
     static const int height = 20;
+    static const int bombsCount = 20;
     std::vector<std::vector<Cell>> board;
-    std::vector<std::pair<int,int>> bombs;
-    std::vector<std::pair<int,int>> markedBombs;
+    std::map<std::pair<int,int>,int> bombs; // all of the elements has 1 as its second value
+    std::map<std::pair<int,int>,int> markedBombs; //if unmarked, then remove from map. if marked is correct, 1, otherwise mark 2
     bool gameOn;
     bool win;
 
    public:
-    game();
-    ~game();
+    Game();
+    ~Game();
     bool checkAvailable(int x, int y);
     void markReveal(int x, int y);
     void markBomb(int x, int y);
     void unMarkBomb(int x, int y);
 
     //check win is a method that updates 
-    void checkWin();
-    friend std::ostream& operator<<(std::ostream& out, game g);
+    bool keepPlayin();
+    friend std::ostream& operator<<(std::ostream& out, Game g);
 };
 
-std::ostream& operator<<(std::ostream& out , game g);
+std::ostream& operator<<(std::ostream& out , Game g);
+
+#endif

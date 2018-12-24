@@ -1,3 +1,6 @@
+#ifndef __CELL_H__
+#define __CELL_H__
+
 #include<iostream>
 #include<vector>
 
@@ -40,6 +43,9 @@ class Cell{
         if(!isRevealed && !flagged){
             return '.';
         }
+        else if (!isRevealed && flagged){
+            return 'F';
+        }
         else if(isBomb && isRevealed){
             return '*';
         }
@@ -48,9 +54,20 @@ class Cell{
             else {return static_cast<char>(bombsAroundMe);}
         }   
         else
-        {
+        {   //this case should not happen
             //then it is marked as bomb
             return 'F';
         }
     } 
+
+    void markCellReveal(){
+        if(!isBomb){
+            isRevealed = true;
+            for(auto &it: neighbours){
+                it->markCellReveal();
+            }
+        }
+    }
+
 };
+#endif
