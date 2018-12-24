@@ -39,9 +39,26 @@ Game::Game(){
 Game::~Game(){}
 
 
-void Game::markBomb(int x, int y){}
+void Game::markBomb(int x, int y){
+    if(checkAvailable(x,y)){
 
-void Game::unMarkBomb(int x, int y){}
+        if (bombs.count(std::make_pair(x,y)) ==0 )
+                {
+        markedBombs[std::make_pair(x,y)] = 2;
+        }
+        else{
+        markedBombs[std::make_pair(x,y)] = 1;
+        }
+
+        board[x][y].setIsBomb(true);
+}
+}
+void Game::unMarkBomb(int x, int y){
+    if(markedBombs.count(std::make_pair(x,y))){
+        markedBombs.erase(std::make_pair(x,y));
+    }
+
+}
 
 bool Game::checkAvailable(int x, int y){
     return (0 <= x && x < width && 0 <= y && y < height);

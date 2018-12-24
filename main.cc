@@ -9,12 +9,19 @@ int main()
     int x;
     int y;
 
-    Cell * c = new Cell();
-    delete c;
-    while(cin >> p && cin>> x && cin >> y){
+    while(cin >> p && cin>> x && cin >> y && g->keepPlayin()){
     
-        if(p == 'm'){}
-        else if (p == 's'){}
+        if(p == 'm'){
+        
+            g->markBomb(x,y);
+        }
+        else if (p == 'u'){
+            g->unMarkBomb(x,y);
+        }
+        else if (p == 's'){
+            g->markReveal(x,y);
+        
+        }
         else{cout<<"Wrong commands!";}
 
     

@@ -1,7 +1,7 @@
 CXX=g++
 CXXFLAGS=-std=c++14 -Wall -Werror -g -MMD
 EXEC=mineSweeper
-OBJECTS=cell.o game.o main.o
+OBJECTS=main.o cell.o game.o
 DEPENDS=${OBJECTS:.o=.d}
 ${EXEC}: ${OBJECTS}
 	${CXX} ${CXXFLAGS} ${OBJECTS} -o ${EXEC}
