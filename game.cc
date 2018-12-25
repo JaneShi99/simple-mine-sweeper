@@ -26,7 +26,7 @@ Game::Game(){
 		int x = rand() % width;
 		int y = rand() % height;
 		bombs[std::make_pair(x,y)] = 1;
-//		std::cout<<x<<" "<<y<<std::endl;
+		std::cout<<"Bomb "<<x<<" "<<y<<std::endl;
 		board[x][y].setIsBomb(true);
 	}   
 	//set the number of bomb neighbours right for each cell
