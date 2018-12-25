@@ -11,6 +11,7 @@ class Game{
     std::vector<std::vector<Cell>> board;
     std::map<std::pair<int,int>,int> bombs; // all of the elements has 1 as its second value
     std::map<std::pair<int,int>,int> markedBombs; //if unmarked, then remove from map. if marked is correct, 1, otherwise mark 2
+    bool gameOn;
     bool win;
 
    public:
