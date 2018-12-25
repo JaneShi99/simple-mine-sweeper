@@ -98,8 +98,9 @@ bool Game::keepPlayin(){
 }
 
 std::ostream& operator<<(std::ostream&out , Game g){
-    for(int i = 0 ; i < g.width; ++i)
-    {
+	std::cout<<"****TEST PRINTING ****"<<std::endl;
+    	for(int i = 0 ; i < g.width; ++i)
+	    {
         for(int j = 0; j < g.height; ++j){
             char c = (g.board)[i][j].getPrintChar();
             out<<c;
