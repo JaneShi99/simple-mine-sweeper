@@ -94,7 +94,8 @@ bool Game::checkAvailable(int x, int y){
 void Game::markReveal(int x, int y){
     std::cout<<"mark reveal called"<<std::endl;
 	if(checkAvailable(x , y)){
-		board[x][y].markCellReveal();     
+	 (&board[x][y])->markCellReveal();     
+
 	}
 }
 

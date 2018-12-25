@@ -7,7 +7,7 @@
 class Game{
     static const int width = 20;
     static const int height = 20;
-    static const int bombsCount = 20;
+    static const int bombsCount = 40;
     std::vector<std::vector<Cell> > board;
     std::map<std::pair<int,int>,int> bombs; // all of the elements has 1 as its second value
     std::map<std::pair<int,int>,int> markedBombs; //if unmarked, then remove from map. if marked is correct, 1, otherwise mark 2

@@ -44,6 +44,7 @@ class Cell{
         //the following is for tests
         //
         //std::cout<<bombsAroundMe;
+        /*
         if(isBomb){return '*';}
         else if (!isBomb){
 
@@ -53,6 +54,7 @@ class Cell{
             else {return s.at(0);}
         }
         else{return '.';}
+        */
         //testing if blocks ends here
 
         if(!isRevealed && !flagged){
@@ -65,8 +67,9 @@ class Cell{
             return '*';
         }
         else if(!isBomb && isRevealed){
-            if (bombsAroundMe == 0) {return ' ';}
-            else {return static_cast<char>(bombsAroundMe);}
+            std::string s = std::to_string(bombsAroundMe);    
+            if( s.at(0) == '0'){return ' ';}
+            else {return s.at(0);}
         }   
         else
         {   //this case should not happen
@@ -76,12 +79,20 @@ class Cell{
     } 
 
     void markCellReveal(){
-        std::cout<<"revealing cell"<<std::endl;
+       // std::cout<<"revealing cell"<<std::endl;
         if(!isBomb){
+
+            if(bombsAroundMe != 0 ){
+                isRevealed = true; 
+            }
+            else{
             isRevealed = true;
             for(auto &it: neighbours){
+                if(!it->getIsBomb())
+                {
                 it->markCellReveal();
-            }
+                }
+            }}
         }
     }
 
