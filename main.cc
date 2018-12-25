@@ -4,7 +4,7 @@
 using namespace std;
 int main()
 {
-    Game * g = new Game();
+    Game g;
     char p;
     int x;
     int y;
@@ -15,13 +15,13 @@ int main()
         cout<<g;
         if(p == 'm'){
         
-            g->markBomb(x,y);
+            g.markBomb(x,y);
         }
         else if (p == 'u'){
-            g->unMarkBomb(x,y);
+            g.unMarkBomb(x,y);
         }
         else if (p == 's'){
-            g->markReveal(x,y);
+            g.markReveal(x,y);
         
         }
         else{cout<<"Wrong commands!";}
@@ -29,6 +29,5 @@ int main()
     
     }
 
-    delete g;
 
 }

@@ -23,9 +23,9 @@ class Game{
 
     //check win is a method that updates 
     bool keepPlayin();
-    friend std::ostream& operator<<(std::ostream& out, Game g);
+    friend std::ostream& operator<<(std::ostream& out, Game & g);
 };
 
-std::ostream& operator<<(std::ostream& out , Game g);
+std::ostream& operator<<(std::ostream& out , Game &  g);
 
 #endif
