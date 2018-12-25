@@ -25,8 +25,6 @@ int main()
         
         }
         else{cout<<"Wrong commands!";}
-
-    
     }
 
 

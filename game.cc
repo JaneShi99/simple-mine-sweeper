@@ -107,19 +107,30 @@ bool Game::keepPlayin(){
 	return true;
 }
 
+
 std::ostream& operator<<(std::ostream& out , Game& g){
-	std::cout<<"****TEST PRINTING ****"<<std::endl;
+	for(int i = 0; i < g.height; ++i){
+		for(int j = 0; j <g.width; ++j){
+            std::cout<<i<<" "<<j<<std::endl;
+			std::cout<<g.board[i][j].getPrintChar();
+		}
+		std::cout<<std::endl;
+	}
+
+   /* 
+    std::cout<<"****TEST PRINTING ****"<<std::endl;
 	for(int i = 0 ; i < g.width; ++i)
 	{
 		std::cout<<i<<std::endl;
 		for(int j = 0; j < g.height; ++j){
 			std::cout<<j<<std::endl;
-			std::cout<<"*****TEST******"<<((g.board)[i][j]).getPrintChar();
+			std::cout<<"*****TEST******"<<g.board[i][j].getPrintChar();
 			char c = (g.board)[i][j].getPrintChar();
 			out<<c;
 		}
 		out<<std::endl;
 	}
+    */
 	return out;
 }
 

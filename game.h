@@ -20,7 +20,6 @@ class Game{
     void markReveal(int x, int y);
     void markBomb(int x, int y);
     void unMarkBomb(int x, int y);
-
     //check win is a method that updates 
     bool keepPlayin();
     friend std::ostream& operator<<(std::ostream& out, Game & g);
