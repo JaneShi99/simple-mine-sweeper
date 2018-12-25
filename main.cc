@@ -4,28 +4,31 @@
 using namespace std;
 int main()
 {
-    Game g;
-    char p;
-    int x;
-    int y;
+    Game * g = new Game();
+ //   char p;
+ //   int x;
+ //   int y;
+    g->print();
 
-    cout<<g;
+    delete g;
+    /*
     while(cin >> p && cin>> x && cin>>y ){
    
-        cout<<g;
+        g->print();
         if(p == 'm'){
         
-            g.markBomb(x,y);
+            g->markBomb(x,y);
         }
         else if (p == 'u'){
-            g.unMarkBomb(x,y);
+            g->unMarkBomb(x,y);
         }
         else if (p == 's'){
-            g.markReveal(x,y);
+            g->markReveal(x,y);
         
         }
         else{cout<<"Wrong commands!";}
     }
 
+*/
 
 }

@@ -22,9 +22,10 @@ class Game{
     void unMarkBomb(int x, int y);
     //check win is a method that updates 
     bool keepPlayin();
-    friend std::ostream& operator<<(std::ostream& out, Game & g);
+    void print();
+    //friend std::ostream& operator<<(std::ostream& out, Game & g);
 };
 
-std::ostream& operator<<(std::ostream& out , Game &  g);
+//std::ostream& operator<<(std::ostream& out , Game &  g);
 
 #endif

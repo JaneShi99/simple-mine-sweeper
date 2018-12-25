@@ -4,9 +4,9 @@
 #include "cell.h"
 Game::Game(){
 	//initialize board
-	std::vector<std::vector<Cell>> board(Game::width,
+	std::vector<std::vector<Cell>> newBoard(Game::width,
 			std::vector<Cell>(Game::height));
-
+    board = newBoard;
 	//initialize the cell add neighbours
 	for(int i = 0; i < width; ++i){
 		for(int j = 0; j < width; ++ j){
@@ -37,7 +37,8 @@ Game::Game(){
 	}
 
 	std::cout<<"****INIT THE BOARD PRINTING*****"<<std::endl;
-
+    std::cout<<"board width"<<width<<std::endl;
+    std::cout<<"board height"<<height<<std::endl;
 	for(int i = 0; i < height; ++i){
 		for(int j = 0; j < width;++j){
 			std::cout<<board[i][j].getPrintChar();
@@ -47,6 +48,21 @@ Game::Game(){
 }
 
 Game::~Game(){}
+
+void Game::print(){
+    std::cout<<"trying to print in the printing function"<<std::endl;
+    std::cout<<"board length"<<board.size()<<std::endl;
+    std::cout<<"bomb size" << bombs.size()<<std::endl;
+    std::cout<<"board width"<<board.at(0).size()<<std::endl;
+    //std::cout<<board[0][0].getPrintChar();
+    for(int i = 0; i < width; ++i){
+		for(int j = 0; j < height;++j){
+			std::cout<<(board.at(i).at(j)).getPrintChar();
+		}
+		std::cout<<std::endl;
+	}
+
+}
 
 
 void Game::markBomb(int x, int y){
@@ -107,17 +123,16 @@ bool Game::keepPlayin(){
 	return true;
 }
 
-
+/*
 std::ostream& operator<<(std::ostream& out , Game& g){
 	for(int i = 0; i < g.height; ++i){
 		for(int j = 0; j <g.width; ++j){
             std::cout<<i<<" "<<j<<std::endl;
-			std::cout<<g.board[i][j].getPrintChar();
+			std::cout<<(g.board)[i][j].getPrintChar();
 		}
 		std::cout<<std::endl;
 	}
 
-   /* 
     std::cout<<"****TEST PRINTING ****"<<std::endl;
 	for(int i = 0 ; i < g.width; ++i)
 	{
@@ -130,7 +145,7 @@ std::ostream& operator<<(std::ostream& out , Game& g){
 		}
 		out<<std::endl;
 	}
-    */
 	return out;
 }
+*/
 
