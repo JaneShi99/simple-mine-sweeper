@@ -14,7 +14,7 @@ class Cell{
 
     public:
 
-    Cell():isBomb{false},isRevealed{false},bombsAroundMe{0},initialized{false}{}
+    Cell():isBomb{false},isRevealed{false},bombsAroundMe{0},initialized{false},flagged{false}{}
     ~Cell(){} 
     void addNeighbour(Cell * n ){neighbours.emplace_back(n);}
 
