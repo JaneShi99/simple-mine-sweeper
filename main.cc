@@ -5,13 +5,11 @@ using namespace std;
 int main()
 {
     Game * g = new Game();
- //   char p;
- //   int x;
- //   int y;
+    char p;
+    int x;
+    int y;
     g->print();
 
-    delete g;
-    /*
     while(cin >> p && cin>> x && cin>>y ){
    
         g->print();
@@ -24,11 +22,9 @@ int main()
         }
         else if (p == 's'){
             g->markReveal(x,y);
-        
+            g->print();        
         }
         else{cout<<"Wrong commands!";}
     }
-
-*/
-
+    delete g;
 }

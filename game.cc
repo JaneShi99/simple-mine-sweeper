@@ -14,7 +14,7 @@ Game::Game(){
 			{
 				for(int yIndex = j - 1; yIndex <= j + 1; ++ yIndex){
 					if (checkAvailable(xIndex,yIndex) && (xIndex !=i || yIndex != j) ){
-						std::cout<<"adding neighbour "<<xIndex<<","<<yIndex<<" to the cell "<<i<<","<<j<<std::endl;
+//						std::cout<<"adding neighbour "<<xIndex<<","<<yIndex<<" to the cell "<<i<<","<<j<<std::endl;
 						board[i][j].addNeighbour(&board[xIndex][yIndex]);
 					}
 				}
@@ -26,7 +26,7 @@ Game::Game(){
 		int x = rand() % width;
 		int y = rand() % height;
 		bombs[std::make_pair(x,y)] = 1;
-		std::cout<<x<<" "<<y<<std::endl;
+//		std::cout<<x<<" "<<y<<std::endl;
 		board[x][y].setIsBomb(true);
 	}   
 	//set the number of bomb neighbours right for each cell
@@ -35,7 +35,7 @@ Game::Game(){
 			elem.countBombsAroundMe();
 		}
 	}
-
+/*
 	std::cout<<"****INIT THE BOARD PRINTING*****"<<std::endl;
     std::cout<<"board width"<<width<<std::endl;
     std::cout<<"board height"<<height<<std::endl;
@@ -45,15 +45,16 @@ Game::Game(){
 		}
 		std::cout<<std::endl;
 	}
+*/
 }
 
 Game::~Game(){}
 
 void Game::print(){
-    std::cout<<"trying to print in the printing function"<<std::endl;
-    std::cout<<"board length"<<board.size()<<std::endl;
-    std::cout<<"bomb size" << bombs.size()<<std::endl;
-    std::cout<<"board width"<<board.at(0).size()<<std::endl;
+//    std::cout<<"trying to print in the printing function"<<std::endl;
+//    std::cout<<"board length"<<board.size()<<std::endl;
+//    std::cout<<"bomb size" << bombs.size()<<std::endl;
+//    std::cout<<"board width"<<board.at(0).size()<<std::endl;
     //std::cout<<board[0][0].getPrintChar();
     for(int i = 0; i < width; ++i){
 		for(int j = 0; j < height;++j){
@@ -91,6 +92,7 @@ bool Game::checkAvailable(int x, int y){
 }
 
 void Game::markReveal(int x, int y){
+    std::cout<<"mark reveal called"<<std::endl;
 	if(checkAvailable(x , y)){
 		board[x][y].markCellReveal();     
 	}
@@ -123,7 +125,6 @@ bool Game::keepPlayin(){
 	return true;
 }
 
-/*
 std::ostream& operator<<(std::ostream& out , Game& g){
 	for(int i = 0; i < g.height; ++i){
 		for(int j = 0; j <g.width; ++j){
@@ -132,20 +133,5 @@ std::ostream& operator<<(std::ostream& out , Game& g){
 		}
 		std::cout<<std::endl;
 	}
-
-    std::cout<<"****TEST PRINTING ****"<<std::endl;
-	for(int i = 0 ; i < g.width; ++i)
-	{
-		std::cout<<i<<std::endl;
-		for(int j = 0; j < g.height; ++j){
-			std::cout<<j<<std::endl;
-			std::cout<<"*****TEST******"<<g.board[i][j].getPrintChar();
-			char c = (g.board)[i][j].getPrintChar();
-			out<<c;
-		}
-		out<<std::endl;
-	}
 	return out;
 }
-*/
-

@@ -3,7 +3,7 @@
 
 #include<iostream>
 #include<vector>
-
+#include<string>
 class Cell{
     std::vector<Cell *> neighbours;
     bool isBomb;
@@ -40,6 +40,21 @@ class Cell{
     int getBombsAroundMe(){return bombsAroundMe;}
 
     char getPrintChar(){
+
+        //the following is for tests
+        //
+        //std::cout<<bombsAroundMe;
+        if(isBomb){return '*';}
+        else if (!isBomb){
+
+            //in here also make sure!!!
+            std::string s = std::to_string(bombsAroundMe);    
+            if( s.at(0) == '0'){return ' ';}
+            else {return s.at(0);}
+        }
+        else{return '.';}
+        //testing if blocks ends here
+
         if(!isRevealed && !flagged){
             return '.';
         }
@@ -61,6 +76,7 @@ class Cell{
     } 
 
     void markCellReveal(){
+        std::cout<<"revealing cell"<<std::endl;
         if(!isBomb){
             isRevealed = true;
             for(auto &it: neighbours){
