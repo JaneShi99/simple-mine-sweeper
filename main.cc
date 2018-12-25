@@ -9,8 +9,10 @@ int main()
     int x;
     int y;
 
-    while(cin >> p && cin>> x && cin >> y && g->keepPlayin()){
-    
+    cout<<g;
+    while(cin >> p && cin>> x && cin>>y ){
+   
+        cout<<g;
         if(p == 'm'){
         
             g->markBomb(x,y);
