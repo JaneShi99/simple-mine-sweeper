@@ -12,13 +12,14 @@ int main()
 
     while(cin >> p && cin>> x && cin>>y ){
    
-        g->print();
         if(p == 'm'){
         
             g->markBomb(x,y);
+	    g->print();
         }
         else if (p == 'u'){
             g->unMarkBomb(x,y);
+	    g->print();
         }
         else if (p == 's'){
             g->markReveal(x,y);

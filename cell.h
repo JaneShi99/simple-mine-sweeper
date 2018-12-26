@@ -39,6 +39,7 @@ class Cell{
 
     int getBombsAroundMe(){return bombsAroundMe;}
 
+    void  setFlagged(bool b){flagged = b;}	
     char getPrintChar(){
 
         //the following is for tests
@@ -81,11 +82,10 @@ class Cell{
     void markCellReveal(){
        // std::cout<<"revealing cell"<<std::endl;
         if(!isBomb){
-
             if(bombsAroundMe != 0 ){
                 isRevealed = true; 
             }
-            else{
+            if(bombsAroundMe == 0){
             isRevealed = true;
             for(auto &it: neighbours){
                 if(!it->getIsBomb())

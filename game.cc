@@ -76,15 +76,15 @@ void Game::markBomb(int x, int y){
 		else{
 			markedBombs[std::make_pair(x,y)] = 1;
 		}
-
-		board[x][y].setIsBomb(true);
+		
+		(&board[x][y])->setFlagged(true);
 	}
 }
 void Game::unMarkBomb(int x, int y){
 	if(markedBombs.count(std::make_pair(x,y))){
 		markedBombs.erase(std::make_pair(x,y));
 	}
-
+	(&board[x][y])->setFlagged(false);
 }
 
 bool Game::checkAvailable(int x, int y){
